@@ -44,7 +44,7 @@ class form {
 			3=> $data[lastname],
 			4=> $data[github],
 			5=> $data[telegram],
-			6=> 'http://the-center.it/'.$dir.$file_name
+			6=> 'http://front.the-center.it/'.$dir.$file_name
 		));
     }
 }

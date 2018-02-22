@@ -34,7 +34,8 @@ class form {
         $data = $f3->get('POST');
         $files = $f3->get('FILES');
 
-        $file_name = form::save_screenshot($files, 'ui/photos/');
+        $dir = 'ui/photos/';
+        $file_name = form::save_screenshot($files, $dir);
 
         $f3->get('DB')->exec('INSERT INTO `users`(`id`, `firstname`, `lastname`, `github`, `telegram`, `screenshot`) VALUES (?,?,?,?,?,?)', 
 		array(
@@ -43,7 +44,7 @@ class form {
 			3=> $data[lastname],
 			4=> $data[github],
 			5=> $data[telegram],
-			6=> '/ui/miss/photos/'.$file_name
+			6=> $dir.$file_name
 		));
     }
 }

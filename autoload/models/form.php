@@ -2,13 +2,14 @@
 namespace models;
 
 class form {
-    public static function validate($f3)
+    public static function validate_post($f3)
     {
-        return FALSE;
+        $data = $f3->get('POST');
+        return TRUE;
     }
 
     public static function create_record($f3)
     {
-
+        print_r($f3->get('POST'));
     }
 }

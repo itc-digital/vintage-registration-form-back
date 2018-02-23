@@ -18,9 +18,10 @@ class form {
         if (($data[firstname] < 1)  || ($data[firstname] > 1024)    ||
             ($data[lastname] < 1)   || ($data[lastname] > 1024)     ||
             ($data[github] < 1)     || ($data[github] > 1024)       ||
-            ($data[telegram] < 1)   || ($data[telegram] > 1024)     ||
+            ($data[telegram] < 1)   || ($data[telegram] > 1024)//     ||
             //($data[faculty] < 1)    || ($data[faculty] > 1024)      ||
-            (!isset($files[screenshot]))){
+            //(!isset($files[screenshot]))
+            ){
             return FALSE;
         } else {
             return TRUE;

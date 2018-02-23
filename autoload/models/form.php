@@ -15,15 +15,18 @@ class form {
     {
         $data = $f3->get('POST');
         $files = $f3->get('FILES');
-        if (($data[firstname] < 1)  || ($data[firstname] > 1024)    ||
-            ($data[lastname] < 1)   || ($data[lastname] > 1024)     ||
-            ($data[github] < 1)     || ($data[github] > 1024)       ||
-            ($data[telegram] < 1)   || ($data[telegram] > 1024)//     ||
-            //($data[faculty] < 1)    || ($data[faculty] > 1024)      ||
-            //(!isset($files[screenshot]))
-            ){
-            return FALSE;
-        } else {
+        if ($data[firstname] < 1)           {print_r('firstname < 1'); return FALSE;}
+        elseif ($data[firstname] > 1024)    {print_r('firstname > 1024'); return FALSE;}
+        elseif ($data[lastname] < 1)        {print_r('lastname < 1'); return FALSE;}
+        elseif ($data[lastname] > 1024)     {print_r('lastname > 1024'); return FALSE;}
+        elseif ($data[github] < 1)          {print_r('github < 1'); return FALSE;}
+        elseif ($data[github] > 1024)       {print_r('github > 1024'); return FALSE;}
+        elseif ($data[telegram] < 1)        {print_r('telegram < 1'); return FALSE;}
+        elseif ($data[telegram] > 1024)     {print_r('telegram > 1024'); return FALSE;}
+        elseif ($data[faculty] < 1)         {print_r('faculty < 1'); return FALSE;}
+        elseif ($data[faculty] > 1024)      {print_r('faculty > 1024'); return FALSE;}
+        elseif (!isset($files[screenshot])) {print_r('screenshot is NULL'); return FALSE;}
+        else {
             return TRUE;
         }
     }

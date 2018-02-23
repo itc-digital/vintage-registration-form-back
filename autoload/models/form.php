@@ -23,6 +23,8 @@ class form {
         elseif (mb_strlen($data[github]) > 1024)    {print_r('github > 1024'); return FALSE;}
         elseif (mb_strlen($data[telegram]) < 1)     {print_r('telegram < 1'); return FALSE;}
         elseif (mb_strlen($data[telegram]) > 1024)  {print_r('telegram > 1024'); return FALSE;}
+        elseif (mb_strlen($data[vk]) < 1)           {print_r('vk < 1'); return FALSE;}
+        elseif (mb_strlen($data[vk]) > 1024)        {print_r('vk > 1024'); return FALSE;}
         elseif (mb_strlen($data[faculty]) < 1)      {print_r('faculty < 1'); return FALSE;}
         elseif (mb_strlen($data[faculty]) > 1024)   {print_r('faculty > 1024'); return FALSE;}
         elseif (!isset($files[screenshot]))         {print_r('screenshot is NULL'); return FALSE;}
@@ -39,15 +41,16 @@ class form {
         $dir = 'ui/photos/';
         $file_name = form::save_screenshot($files, $dir);
 
-        $f3->get('DB')->exec('INSERT INTO `users`(`id`, `firstname`, `lastname`, `github`, `telegram`, `faculty`, `screenshot`) VALUES (?,?,?,?,?,?,?)', 
+        $f3->get('DB')->exec('INSERT INTO `users`(`id`, `firstname`, `lastname`, `vk`, `github`, `telegram`, `faculty`, `screenshot`) VALUES (?,?,?,?,?,?,?,?)', 
 		array(
             1=> NULL,
 			2=> $data[firstname],
 			3=> $data[lastname],
-			4=> $data[github],
-            5=> $data[telegram],
-            6=> $data[faculty],
-			7=> 'http://front.the-center.it/'.$dir.$file_name
+			4=> $data[vk],
+			5=> $data[github],
+            6=> $data[telegram],
+            7=> $data[faculty],
+			8=> 'http://front.the-center.it/'.$dir.$file_name
 		));
     }
 }

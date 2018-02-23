@@ -15,11 +15,11 @@ class form {
     {
         $data = $f3->get('POST');
         $files = $f3->get('FILES');
-        if (($data[firstname] < 1) || ($data[firstname] > 1024) ||
-            ($data[lastname] < 1) || ($data[lastname] > 1024) ||
-            ($data[github] < 1) || ($data[github] > 1024) ||
-            ($data[telegram] < 1) || ($data[telegram] > 1024) ||
-            ($data[faculty] < 1) || ($data[faculty] > 1024) ||
+        if (($data[firstname] < 1)  || ($data[firstname] > 1024)    ||
+            ($data[lastname] < 1)   || ($data[lastname] > 1024)     ||
+            ($data[github] < 1)     || ($data[github] > 1024)       ||
+            ($data[telegram] < 1)   || ($data[telegram] > 1024)     ||
+            ($data[faculty] < 1)    || ($data[faculty] > 1024)      ||
             (!isset($files[screenshot]))){
             return FALSE;
         } else {

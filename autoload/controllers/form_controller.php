@@ -9,6 +9,7 @@ class form_controller {
             $f3->status(200);
         } else {
             print_r($f3->get('POST'));
+            print_r($f3->get('FILES'));
             $f3->status(418);
         }
     }

@@ -19,7 +19,7 @@ class form {
             ($data[lastname] < 1)   || ($data[lastname] > 1024)     ||
             ($data[github] < 1)     || ($data[github] > 1024)       ||
             ($data[telegram] < 1)   || ($data[telegram] > 1024)     ||
-            ($data[faculty] < 1)    || ($data[faculty] > 1024)      ||
+            //($data[faculty] < 1)    || ($data[faculty] > 1024)      ||
             (!isset($files[screenshot]))){
             return FALSE;
         } else {

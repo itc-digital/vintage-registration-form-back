@@ -15,16 +15,14 @@ class form {
     {
         $data = $f3->get('POST');
         $files = $f3->get('FILES');
-        if (($data[firstname] < 0) || ($data[firstname] > 1024) ||
-            ($data[lastname] < 0) || ($data[lastname] > 1024) ||
-            ($data[github] < 0) || ($data[github] > 1024) ||
-            ($data[telegram] < 0) || ($data[telegram] > 1024) ||
-            (!isset($files[screenshot])))
-        {
+        if (($data[firstname] < 1) || ($data[firstname] > 1024) ||
+            ($data[lastname] < 1) || ($data[lastname] > 1024) ||
+            ($data[github] < 1) || ($data[github] > 1024) ||
+            ($data[telegram] < 1) || ($data[telegram] > 1024) ||
+            ($data[faculty] < 1) || ($data[faculty] > 1024) ||
+            (!isset($files[screenshot]))){
             return FALSE;
-        }
-        else
-        {
+        } else {
             return TRUE;
         }
     }
@@ -37,14 +35,15 @@ class form {
         $dir = 'ui/photos/';
         $file_name = form::save_screenshot($files, $dir);
 
-        $f3->get('DB')->exec('INSERT INTO `users`(`id`, `firstname`, `lastname`, `github`, `telegram`, `screenshot`) VALUES (?,?,?,?,?,?)', 
+        $f3->get('DB')->exec('INSERT INTO `users`(`id`, `firstname`, `lastname`, `github`, `telegram`, `faculty`, `screenshot`) VALUES (?,?,?,?,?,?,?)', 
 		array(
             1=> NULL,
 			2=> $data[firstname],
 			3=> $data[lastname],
 			4=> $data[github],
-			5=> $data[telegram],
-			6=> 'http://front.the-center.it/'.$dir.$file_name
+            5=> $data[telegram],
+            6=> $data[faculty],
+			7=> 'http://front.the-center.it/'.$dir.$file_name
 		));
     }
 }

@@ -8,6 +8,7 @@ class form_controller {
             \models\form::create_record($f3);
             $f3->status(200);
         } else {
+            print_r($f3->get('POST'));
             $f3->status(418);
         }
     }
